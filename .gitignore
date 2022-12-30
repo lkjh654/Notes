@@ -1,0 +1,21 @@
+# generated files
+bin/
+gen/
+build/
+
+# Windows thumbnail db
+Thumbs.db
+
+# OSX files
+.DS_Store
+
+# Eclipse project files
+.classpath
+.project
+
+# Visual Studio Code
+.vscode
+Notes.code-workspace
+
+# local propeties
+properties.mk
