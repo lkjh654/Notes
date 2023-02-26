@@ -1,5 +1,6 @@
 import Toybox.Graphics;
 import Toybox.WatchUi;
+import Toybox.Lang;
 
 class NotesView extends WatchUi.View {
 
@@ -9,8 +10,8 @@ class NotesView extends WatchUi.View {
     private var _line2 = [['a','A', '-'], ['s','S', '/'], ['d','D', ':'], ['f','F', ';'], ['g','G', '('], ['h','H', ')'], ['j','J', '&'], ['k','K', '@'], ['l','L', '"']];
     private var _line3 = [['z','Z', '.'], ['x','X', ','], ['c','C', '?'], ['v','V', '!'], ['b','B', '+'], ['n','N', '*'], ['m','M', '=']];
 
-    private var _text as Array<Char>;
-    private var _textArea as ScrollableText;
+    private var _text as Array<Char>?;
+    private var _textArea as ScrollableText?;
     private var _multiModeKeys = new Array<TextButton>[0];
     private var _keyboardMode = 0;
 
@@ -30,7 +31,7 @@ class NotesView extends WatchUi.View {
         var sizeLine2 = _line2.size();
         var sizeLine3 = _line3.size();
         
-        var layout = new Array<TextButton>[1 + sizeLineTop + sizeLine0 + sizeLine1 + sizeLine2 + sizeLine3];
+        var layout = new Array<WatchUi.Drawable>[1 + sizeLineTop + sizeLine0 + sizeLine1 + sizeLine2 + sizeLine3];
 
         var r = width / 2;
         var xPrim = (2 * r) / 3;
@@ -41,9 +42,9 @@ class NotesView extends WatchUi.View {
 
         var textAreaWidth = 2 * xPrim;
         var textAreaHeight = height - keyboardHeight - y;
-        var textAreaStartX = r - xPrim;
-        var textAreaEndX = textAreaStartX + textAreaWidth;
-        var textAreaStartY = y;
+        var textAreaStartX = (r - xPrim).toNumber();
+        var textAreaEndX = (textAreaStartX + textAreaWidth).toNumber();
+        var textAreaStartY = y.toNumber();
 
         _textArea = new ScrollableText({
             :color=>Graphics.COLOR_WHITE,
@@ -61,7 +62,7 @@ class NotesView extends WatchUi.View {
 
         // lineTop
         var keyWidth = textAreaWidth / sizeLineTop;
-        var keyHeight = textAreaStartY;
+        var keyHeight = textAreaStartY.toNumber();
         var shiftWidth = (1.1 * keyWidth).toNumber();
         var specialWidth = (0.7 * keyWidth).toNumber();
         var spaceWidth = (1.0 * keyWidth).toNumber();
@@ -83,7 +84,7 @@ class NotesView extends WatchUi.View {
         
         // line0
         keyWidth = textAreaStartX;
-        keyHeight = textAreaHeight;
+        keyHeight = textAreaHeight.toNumber();
         var line0locY = textAreaStartY;
 
         var qKey = buildKeyWithBias(KeyType.Regular, _qKey, 0, line0locY, keyWidth, keyHeight, 0.6, 0.6);
@@ -165,7 +166,7 @@ class NotesView extends WatchUi.View {
         }
     }
     
-    private function buildKeyWithBias(keyType as Number, keys as Array<Char>, locX as Number, locY as Number, width as Number, height as Number, horizontalTextBias as Float, verticalTextBias as Float) as TextButton {
+    private function buildKeyWithBias(keyType as Number, keys as Array<Char>, locX as Number, locY as Number, width as Number, height as Number, horizontalTextBias as Float?, verticalTextBias as Float?) as TextButton {
         var paddingX = 1;
         var paddingY = 1;
         var settings = {

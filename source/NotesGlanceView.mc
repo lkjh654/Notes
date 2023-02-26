@@ -1,11 +1,12 @@
 import Toybox.Graphics;
 import Toybox.WatchUi;
+import Toybox.Lang;
 
 (:glance)
 class NotesGlanceView extends WatchUi.GlanceView {
 
     private var _text as String;
-    private var _textArea as ScrollableText;
+    private var _textArea as TextArea?;
 
     function initialize(text as String) {
         if(text == null || text.equals("")) {

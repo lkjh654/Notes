@@ -1,5 +1,6 @@
-using Toybox.Graphics;
 using Toybox.WatchUi;
+import Toybox.Graphics;
+import Toybox.Lang;
 
 class ScrollableText extends WatchUi.Drawable {
     
@@ -196,7 +197,7 @@ class ScrollableText extends WatchUi.Drawable {
         return output;
     }
 
-    function findFittingSubstringIndices(text as String, startIndex as Number, endIndex as Number, width as Number, dc as Dc) as Array<Number> {
+    function findFittingSubstringIndices(text as String, startIndex as Number, endIndex as Number, width as Number, dc as Dc) as Array<Number>? {
         var lastFittingIndex = -1;
         var lastFittingRemaingWidth = -1;
         

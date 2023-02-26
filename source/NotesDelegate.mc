@@ -72,7 +72,7 @@ class NotesDelegate extends WatchUi.BehaviorDelegate {
 
     function onSelectable(event as WatchUi.SelectableEvent) as Boolean {
         var instance = event.getInstance();
-        if (instance instanceof TextButton && instance.getState() == :stateHighlighted) {
+        if (instance instanceof TextButton && instance.getState() == :stateSelected) {
             _controlsCallback.onKeyboardKeyPressed(instance.keyType, instance.getCurrentKey());
         }
         return true;

@@ -7,7 +7,7 @@ using Toybox.Timer;
 class NotesApp extends Application.AppBase {
 
     private const AUTO_SAVE_TICK_MILLIS = 5000;
-    private var _view as NotesView;
+    private var _view as NotesView?;
     
     private var _autoSaveTimer as Timer.Timer;
 

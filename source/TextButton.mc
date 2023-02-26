@@ -1,5 +1,6 @@
-using Toybox.Graphics;
-using Toybox.WatchUi;
+import Toybox.WatchUi;
+import Toybox.Graphics;
+import Toybox.Lang;
 
 class TextButton extends WatchUi.Button {
 
@@ -18,8 +19,8 @@ class TextButton extends WatchUi.Button {
                 :locY as Number,
                 :width as Number,
                 :height as Number,
-                :horizontalTextBias as Float,
-                :verticalTextBias as Float,
+                :horizontalTextBias as Float?,
+                :verticalTextBias as Float?,
                 :stateDefault as Graphics.ColorType or Drawable,
                 :stateHighlighted as Graphics.ColorType or Drawable,
                 :stateSelected as Graphics.ColorType or Drawable,
@@ -44,7 +45,7 @@ class TextButton extends WatchUi.Button {
             locX + width * _horizontalTextBias,
             locY + height * _verticalTextBias,
             Graphics.FONT_SMALL,
-            getCurrentKey(),
+            getCurrentKey().toString(),
             Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER
         );
     }
