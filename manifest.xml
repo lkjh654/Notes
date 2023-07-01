@@ -5,7 +5,7 @@
         Use "Monkey C: Edit Application" from the Visual Studio Code command palette
         to update the application attributes.
     -->
-    <iq:application id="c15657cc-fe54-451d-8825-ed070b997330" type="widget" name="@Strings.AppName" entry="NotesApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="3.2.0" version="1.1.2">
+    <iq:application id="c15657cc-fe54-451d-8825-ed070b997330" type="widget" name="@Strings.AppName" entry="NotesApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="3.2.0" version="1.1.3">
         <!--
             Use the following from the Visual Studio Code comand palette to edit
             the build targets:
@@ -18,10 +18,17 @@
             <iq:product id="d2airx10"/>
             <iq:product id="d2mach1"/>
             <iq:product id="epix2"/>
+            <iq:product id="epix2pro42mm"/>
+            <iq:product id="epix2pro47mm"/>
+            <iq:product id="epix2pro51mm"/>
             <iq:product id="fenix7"/>
+            <iq:product id="fenix7pro"/>
             <iq:product id="fenix7s"/>
+            <iq:product id="fenix7spro"/>
             <iq:product id="fenix7x"/>
+            <iq:product id="fenix7xpro"/>
             <iq:product id="fr955"/>
+            <iq:product id="fr965"/>
             <iq:product id="marq2"/>
             <iq:product id="marq2aviator"/>
         </iq:products>
